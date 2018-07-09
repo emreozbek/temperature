@@ -4,11 +4,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule, MatTabsModule} from '@angular/material';
 
 import { AppComponent } from './component/app-component/app.component';
+import { CityListComponent } from './component/city-list/city-list.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CityListComponent
   ],
   imports: [
     BrowserModule,
