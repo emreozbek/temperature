@@ -5,12 +5,14 @@ import {MatCardModule, MatTabsModule} from '@angular/material';
 
 import { AppComponent } from './component/app-component/app.component';
 import { CityListComponent } from './component/city-list/city-list.component';
+import { HistoryListComponent } from './component/history-list/history-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityListComponent
+    CityListComponent,
+    HistoryListComponent
   ],
   imports: [
     BrowserModule,
