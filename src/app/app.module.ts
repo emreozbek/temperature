@@ -10,12 +10,15 @@ import {
   MatSelectModule,
   MatTabsModule
 } from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './component/app-component/app.component';
 import { CityListComponent } from './component/city-list/city-list.component';
 import { HistoryListComponent } from './component/history-list/history-list.component';
 import { CityItemComponent } from './component/city-item/city-item.component';
 import {CitiesService} from './service/cities/cities.service';
+import {CoreService} from './service/rest/core/core.service';
+import {WeatherService} from './service/rest/weather/weather.service';
 
 
 @NgModule({
@@ -28,6 +31,7 @@ import {CitiesService} from './service/cities/cities.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatCardModule,
     MatTabsModule,
     MatFormFieldModule,
@@ -36,7 +40,7 @@ import {CitiesService} from './service/cities/cities.service';
     MatListModule,
     MatIconModule
   ],
-  providers: [CitiesService],
+  providers: [CitiesService, CoreService, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
