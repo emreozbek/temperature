@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CitiesService} from '../../service/cities/cities.service';
 
 @Component({
   selector: 'app-city-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CityListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cities: CitiesService) { }
 
   ngOnInit() {
   }
