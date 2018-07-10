@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatFormFieldModule, MatIconModule, MatListModule, MatSelectModule} from '@angular/material';
 
 import { HistoryListComponent } from './history-list.component';
+import {CitiesService} from '../../service/cities/cities.service';
 
 describe('HistoryListComponent', () => {
   let component: HistoryListComponent;
@@ -8,7 +11,9 @@ describe('HistoryListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoryListComponent ]
+      declarations: [ HistoryListComponent ],
+      imports: [BrowserAnimationsModule, MatFormFieldModule, MatSelectModule, MatIconModule, MatListModule],
+      providers: [CitiesService]
     })
     .compileComponents();
   }));

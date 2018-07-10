@@ -1,3 +1,23 @@
 <p>
-  history-list works!
+  <mat-form-field class="width--100">
+    <mat-select [(value)]="selected" placeholder="Choose a city" (selectionChange)="selectedCity()">
+      <mat-option *ngFor="let city of cities.cities" [value]="city.id">
+        {{city.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </p>
+<mat-list>
+  <mat-list-item>
+    <mat-icon class="list-icon" mat-list-icon>
+      <img src="https://openweathermap.org/img/w/04n.png" [alt]="" class="history-icon">
+    </mat-icon>
+    <h3 class="mat-title" mat-line>
+      Clody - 21
+      <sup class="mat-hint">{{symbol}}</sup>
+    </h3>
+    <p mat-line>
+      Tue Jul 10 2018 22:00:00
+    </p>
+  </mat-list-item>
+</mat-list>
