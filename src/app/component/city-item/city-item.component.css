@@ -1,0 +1,30 @@
+.city-container{
+  display: flex;
+  min-height: 64px;
+}
+.city-name,
+.city-degree,
+.city-icon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.city-name{
+  flex: 1;
+}
+.city-degree *,
+.city-name *{
+  margin: 0;
+}
+.city-degree{
+  align-items: flex-end;
+  max-width: 96px;
+}
+.city-icon{
+  width: 64px;
+  align-items: center;
+}
+.city-icon img{
+  width: 48px;
+  height: 48px;
+}
