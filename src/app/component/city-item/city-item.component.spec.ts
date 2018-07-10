@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { CityItemComponent } from './city-item.component';
+import {WeatherService} from '../../service/rest/weather/weather.service';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('CityItemComponent', () => {
   let component: CityItemComponent;
@@ -8,7 +11,10 @@ describe('CityItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CityItemComponent ]
+      declarations: [ CityItemComponent ],
+      imports: [HttpClientModule],
+      providers: [WeatherService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
