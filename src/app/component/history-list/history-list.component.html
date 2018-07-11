@@ -1,6 +1,6 @@
 <p>
   <mat-form-field class="width--100">
-    <mat-select [(value)]="selected" placeholder="Choose a city" (selectionChange)="selectedCity()">
+    <mat-select [(value)]="selected" placeholder="Choose a city">
       <mat-option *ngFor="let city of cities.cities" [value]="city.id">
         {{city.name}}
       </mat-option>
@@ -8,16 +8,21 @@
   </mat-form-field>
 </p>
 <mat-list>
-  <mat-list-item>
+  <mat-list-item *ngFor="let weather of weathers[selected]">
     <mat-icon class="list-icon" mat-list-icon>
-      <img src="https://openweathermap.org/img/w/04n.png" [alt]="" class="history-icon">
+      <img [src]="environment.cdn + weather.weather[0].icon + environment.iconExtension" [alt]="weather.weather[0].description" class="history-icon">
     </mat-icon>
     <h3 class="mat-title" mat-line>
-      Clody - 21
-      <sup class="mat-hint">{{symbol}}</sup>
+      {{weather.main.temp}}
+      <sup class="mat-hint">{{environment.symbol}}</sup>
+      -
+      {{weather.weather[0].description}}
     </h3>
     <p mat-line>
-      Tue Jul 10 2018 22:00:00
+      {{
+        dateUtil.UTCSecondsToDate(weather.dt).toDateString() + " " +
+        dateUtil.UTCSecondsToDate(weather.dt).toLocaleTimeString()
+      }}
     </p>
   </mat-list-item>
 </mat-list>
