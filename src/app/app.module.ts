@@ -22,6 +22,7 @@ import {CoreService} from './service/rest/core/core.service';
 import {WeatherService} from './service/rest/weather/weather.service';
 import {currentWeatherReducer} from './store/reducer/weather.reducer';
 import {WeatherAction} from './store/action/weather.action';
+import {DateUtilService} from './util/date/date.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import {WeatherAction} from './store/action/weather.action';
     MatIconModule,
     StoreModule.forRoot({weather: currentWeatherReducer}),
   ],
-  providers: [CitiesService, CoreService, WeatherService, WeatherAction],
+  providers: [CitiesService, CoreService, WeatherService, WeatherAction, DateUtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
