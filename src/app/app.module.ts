@@ -11,6 +11,7 @@ import {
   MatTabsModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {StoreModule} from '@ngrx/store';
 
 import { AppComponent } from './component/app-component/app.component';
 import { CityListComponent } from './component/city-list/city-list.component';
@@ -19,6 +20,8 @@ import { CityItemComponent } from './component/city-item/city-item.component';
 import {CitiesService} from './service/cities/cities.service';
 import {CoreService} from './service/rest/core/core.service';
 import {WeatherService} from './service/rest/weather/weather.service';
+import {currentWeatherReducer} from './store/reducer/weather.reducer';
+import {WeatherAction} from './store/action/weather.action';
 
 
 @NgModule({
@@ -38,9 +41,10 @@ import {WeatherService} from './service/rest/weather/weather.service';
     MatSelectModule,
     MatOptionModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    StoreModule.forRoot({weather: currentWeatherReducer}),
   ],
-  providers: [CitiesService, CoreService, WeatherService],
+  providers: [CitiesService, CoreService, WeatherService, WeatherAction],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
