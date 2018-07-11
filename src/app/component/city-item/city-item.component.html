@@ -1,19 +1,26 @@
-<div class="city-container">
+<div class="city-container" *ngIf="error">
+  <div class="button-row">
+    <button (click)="updateWeather()" mat-button color="accent">Retry</button>
+  </div>
+</div>
+<div class="city-container" *ngIf="actual">
   <div class="city-name">
     <h2 class="mat-title">
-      Antalya
+      {{actual.name}}
     </h2>
     <p class="mat-caption no-margin">
-      Cloudy
+      {{actual.weather[0].description}}
     </p>
   </div>
   <div class="city-degree">
     <p class="mat-title">
-      21
-      <sup class="mat-hint">{{symbol}}</sup>
+      {{actual.main.temp}}
+      <sup class="mat-hint">
+        {{environment.symbol}}
+      </sup>
     </p>
   </div>
   <div class="city-icon">
-    <img src="https://openweathermap.org/img/w/04n.png" [alt]="">
+    <img [src]="environment.cdn + actual.weather[0].icon + environment.iconExtension" [alt]="actual.weather[0].description">
   </div>
 </div>

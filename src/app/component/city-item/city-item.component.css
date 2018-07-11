@@ -1,6 +1,10 @@
 .city-container{
   display: flex;
   min-height: 64px;
+  justify-content: flex-end;
+}
+.city-container .button-row{
+  align-self: center;
 }
 .city-name,
 .city-degree,

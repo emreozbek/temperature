@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
   MatIconModule,
@@ -43,6 +44,7 @@ import {DateUtilService} from './util/date/date.service';
     MatOptionModule,
     MatListModule,
     MatIconModule,
+    MatButtonModule,
     StoreModule.forRoot({weather: currentWeatherReducer}),
   ],
   providers: [CitiesService, CoreService, WeatherService, WeatherAction, DateUtilService],
