@@ -7,8 +7,8 @@ import {CurrentWeatherModel} from '../../model/weather/current.model';
 
 @Injectable()
 export class WeatherAction {
-  constructor(private store: Store<WeatherStoreModel>){}
-  public updateWeather(id: number, weather: CurrentWeatherModel){
+  constructor(private store: Store<WeatherStoreModel>) {}
+  public updateWeather(id: number, weather: CurrentWeatherModel) {
     this.store.dispatch({
       type: UPDATE_WEATHER,
       payload: {

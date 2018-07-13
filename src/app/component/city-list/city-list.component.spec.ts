@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { CityListComponent } from './city-list.component';
@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {WeatherAction} from '../../store/action/weather.action';
 import {StoreModule} from '@ngrx/store';
 import {currentWeatherReducer} from '../../store/reducer/weather.reducer';
+import {CurrentWeatherModel} from '../../model/weather/current.model';
 
 describe('CityListComponent', () => {
   let component: CityListComponent;
@@ -33,4 +34,12 @@ describe('CityListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have cities', inject([CitiesService], (cities: CitiesService) => {
+    expect(cities).toBeTruthy();
+    cities.cities.map(item => {
+      expect(item.id).toBeDefined();
+      expect(item.name).toBeDefined();
+    });
+  }));
 });

@@ -12,4 +12,8 @@ describe('DateService', () => {
   it('should be created', inject([DateUtilService], (service: DateUtilService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should be handle date', inject([DateUtilService], (service: DateUtilService) => {
+    expect(service.UTCSecondsToDate(1369824698)).toEqual(jasmine.any(Date));
+  }));
 });

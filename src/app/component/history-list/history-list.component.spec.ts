@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatIconModule, MatListModule, MatSelectModule} from '@angular/material';
 
@@ -36,7 +36,16 @@ describe('HistoryListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should have cities', inject([CitiesService], (cities: CitiesService) => {
+    expect(cities).toBeTruthy();
+    expect(cities.cities.length).toBeGreaterThan(0);
+    cities.cities.map(item => {
+      expect(item.id).toBeDefined();
+      expect(item.name).toBeDefined();
+    });
+  }));
+
+  it('should be handle date', inject([DateUtilService], (service: DateUtilService) => {
+    expect(service.UTCSecondsToDate(1369824698)).toEqual(jasmine.any(Date));
+  }));
 });

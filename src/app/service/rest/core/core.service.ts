@@ -4,8 +4,8 @@ import {environment} from '../../../../environments/environment';
 
 @Injectable()
 export class CoreService {
-  constructor(private http: HttpClient){}
-  getCall(url: string, params?: Object): Promise<any>{
+  constructor(private http: HttpClient) {}
+  getCall(url: string, params?: Object): Promise<any> {
     return this.http.get(url + '?' + this.jsonToURLParams({
       appid: environment.weather.api.key,
       ...params,
